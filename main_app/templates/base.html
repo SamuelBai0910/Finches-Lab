@@ -19,13 +19,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/finches">All Finches</a>
+              <a class="nav-link" href="{% url 'index' %}">All Finches</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about">about</a>
+              <a class="nav-link" href="{% url 'finches_create' %}">Add Finches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">about</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
