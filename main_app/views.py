@@ -35,7 +35,13 @@ def add_feeding(request, finch_id):
         new_feeding.save()
     return redirect('detail', finch_id=finch_id)
 
+def assoc_habitat(request, finch_id, habitat_id):
+    Finch.objects.get(id=finch_id).habitats.add(habitat_id)
+    return redirect('detail', finch_id=finch_id)
 
+def unassoc_habitat(request, finch_id, habitat_id):
+    Finch.objects.get(id=finch_id).habitats.remove(habitat_id)
+    return redirect('detail', finch_id=finch_id)
 
 class FinchCreate(CreateView):
     model = Finch
