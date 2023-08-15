@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Habitat List</h1>
+
+{% for habitat in habitat_list %}
+  <a href="{% url 'habitats_detail' habitat.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ habitat.name }}</span>
+            <p>description: {{ habitat.description }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

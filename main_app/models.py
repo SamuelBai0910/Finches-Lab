@@ -8,11 +8,22 @@ MEALS = (
 )
 
 # Create your models here.
+class Habitat(models.Model):
+  name = models.CharField(max_length=100)
+  description = models.CharField(max_length=250)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('habitats_detail', kwargs={'pk': self.id})
+
 class Finch(models.Model):
     name = models.CharField(max_length=100)
     s_name = models.CharField(max_length=100)
     origin = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
+    habitats = models.ManyToManyField(Habitat)
     
     def __str__(self):
         return f'{self.name} ({self.id})'
